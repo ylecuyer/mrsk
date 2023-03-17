@@ -27,6 +27,12 @@ class Mrsk::Configuration::Accessory
     end
   end
 
+  def port_args
+    if specifics["port"]
+      argumentize "--publish", port
+    end
+  end
+
   def labels
     default_labels.merge(specifics["labels"] || {})
   end
